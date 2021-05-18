@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Mapper(uses = {DateMapper.class})
 public interface BeerMapper {
 
-    BeerDto BeerToBeerDto(Beer111 beer);
+    BeerDto BeerToBeerDto(Beer beer);
     Beer BeerDtoToBeer(BeerDto beerDto);
 
 }
