@@ -5,11 +5,13 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Type;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Null;
 import javax.validation.constraints.Positive;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.util.UUID;
@@ -18,9 +20,12 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class BeerDto {
+public class BeerDto implements Serializable {
+
+    private static final long serialVersionUID = 3545736275716912663L;
 
     @Null
+    @Type(type="uuid-char")
     private UUID id;
     @Null
     private Integer version;
@@ -40,8 +45,7 @@ public class BeerDto {
     private BeerStyleEnum beerStyle;
 
     @NotNull
-    @Positive
-    private Long upc;
+    private String upc;
     @NotNull
     @Positive
     @JsonFormat(shape = JsonFormat.Shape.STRING)
