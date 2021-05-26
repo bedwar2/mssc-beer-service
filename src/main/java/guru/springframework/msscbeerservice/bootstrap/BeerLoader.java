@@ -3,12 +3,13 @@ package guru.springframework.msscbeerservice.bootstrap;
 
 import guru.springframework.msscbeerservice.domain.Beer;
 import guru.springframework.msscbeerservice.repositories.BeerRepository;
+import sfg.brewery.model.BeerStyleEnum;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 
-//@Component
+@Component
 public class BeerLoader implements CommandLineRunner {
 
     private final BeerRepository beerRepository;
@@ -28,9 +29,9 @@ public class BeerLoader implements CommandLineRunner {
 
     private void loadBeerObjects() {
         if (beerRepository.count() == 0) {
-            beerRepository.save(Beer.builder().beerName("Mango Bob's").beerStyle("Lager").quantityToBrew(200).upc(BEER_1_UPC).price(new BigDecimal(12.96)).build());
-            beerRepository.save(Beer.builder().beerName("Galaxy Cat").beerStyle("Pale Ale").quantityToBrew(300).upc(BEER_2_UPC).price(new BigDecimal(7.96)).build());
-            beerRepository.save(Beer.builder().beerName("No Hammers on the Bar").beerStyle("Pale Ale").quantityToBrew(300).upc(BEER_3_UPC).price(new BigDecimal(8.98)).build());
+            beerRepository.save(Beer.builder().beerName("Mango Bob's").beerStyle(BeerStyleEnum.LAGER.toString()).quantityToBrew(200).upc(BEER_1_UPC).price(new BigDecimal(12.96)).minOnHand(200).build());
+            beerRepository.save(Beer.builder().beerName("Galaxy Cat").beerStyle(BeerStyleEnum.PALE_ALE.toString()).quantityToBrew(300).upc(BEER_2_UPC).price(new BigDecimal(7.96)).minOnHand(200).build());
+            beerRepository.save(Beer.builder().beerName("No Hammers on the Bar").beerStyle(BeerStyleEnum.PALE_ALE.toString()).quantityToBrew(300).upc(BEER_3_UPC).price(new BigDecimal(8.98)).minOnHand(200).build());
 
         }
 

@@ -1,8 +1,8 @@
 package guru.springframework.msscbeerservice.services;
 
-import guru.springframework.msscbeerservice.web.model.BeerDto;
-import guru.springframework.msscbeerservice.web.model.BeerPageList;
-import guru.springframework.msscbeerservice.web.model.BeerStyleEnum;
+import sfg.brewery.model.BeerDto;
+import sfg.brewery.model.BeerPageList;
+import sfg.brewery.model.BeerStyleEnum;
 import javassist.NotFoundException;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
